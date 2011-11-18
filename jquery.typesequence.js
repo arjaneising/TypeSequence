@@ -1,3 +1,4 @@
+/* By Arjan Eising, 2011. Licence: MIT. See <https://github.com/arjaneising/TypeSequence> */
 ;(function($) {
   $.fn.typesequence = function(options) {
     var defaults = {
@@ -66,5 +67,8 @@
         defaults.callback(elms);
       }
     }
+    
+    
+    return elms;
   }
 })(jQuery);
