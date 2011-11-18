@@ -11,12 +11,12 @@ Accepts three options:
 Example
 -------
 
-```$(window).typesequence({
-  sequence: ['p', 'a', 's', 's', 'w', 'o', 'r', 'd'],
-  enter: true,
-  callback: function(){
-    alert('Foo');
-  }
-});```
+        $(window).typesequence({
+          sequence: ['p', 'a', 's', 's', 'w', 'o', 'r', 'd'],
+          enter: true,
+          callback: function(){
+            alert('Foo');
+          }
+        });
 
 See also the source of <demo.html>.
