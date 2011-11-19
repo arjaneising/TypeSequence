@@ -34,8 +34,6 @@
       }
     }
     
-    console.log($.fn.typesequence.cache);
-    
     if (defaults.enter) {
       codedSequence.push(13);
     }
