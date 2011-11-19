@@ -15,17 +15,26 @@
     
     for (var i = 0, l = defaults.sequence.length, key, codedKey = null; i < l; ++i) {
       key = defaults.sequence[i];
-      if (typeof key == 'number') codedKey = key;
-      else if (/^[0-9]$/.test(key)) codedKey = parseInt(key, 10) + 48;
-      else if (/^F[0-9]{1,2}$/.test(key)) codedKey = parseInt(key.substring(1), 10) + 111;
-      else if (/^[a-zA-Z]$/.test(key)) codedKey = parseInt(key, 36) + 55;
-      else if ($.fn.typesequence.keycodes[key]) codedKey = $.fn.typesequence.keycodes[key];
+      if ($.fn.typesequence.cache[key]) {
+        codedKey = $.fn.typesequence.cache[key];
+      }
+      else {
+        if (typeof key == 'number') codedKey = key;
+        else if (/^[0-9]$/.test(key)) codedKey = parseInt(key, 10) + 48;
+        else if (/^F[0-9]{1,2}$/.test(key)) codedKey = parseInt(key.substring(1), 10) + 111;
+        else if (/^[a-zA-Z]$/.test(key)) codedKey = parseInt(key, 36) + 55;
+        else if ($.fn.typesequence.keycodes[key]) codedKey = $.fn.typesequence.keycodes[key];
+        if (!codedKey) continue;
+        $.fn.typesequence.cache[key] = codedKey;
+      }
       
       if (codedKey) {
         codedSequence.push(codedKey);
         codedKey = null;
       }
     }
+    
+    console.log($.fn.typesequence.cache);
     
     if (defaults.enter) {
       codedSequence.push(13);
@@ -104,4 +113,7 @@
     'DEL': 46,
     'NUMLOCK': 144
   };
+  
+  
+  $.fn.typesequence.cache = {};
 })(jQuery);
