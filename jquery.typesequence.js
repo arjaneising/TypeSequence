@@ -66,7 +66,7 @@
     
     
     return elms;
-  }
+  };
   
   
   $.fn.typesequence.defaults = {
@@ -74,7 +74,7 @@
     enter: false,
     once: false,
     sequence: []
-  }
+  };
   
   
   $.fn.typesequence.keycodes = {
