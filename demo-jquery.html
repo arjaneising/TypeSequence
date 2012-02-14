@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>TypeSequence Demo</title>
+<h1>TypeSequence Demo</h1>
+<p>Type <code>a</code>, <code>b</code> and <code>c</code> for 'Hello World'</p>
+<p>Type <code>↑</code>, <code>↑</code>, <code>↓</code>, <code>↓</code>, <code>←</code>, <code>→</code>, <code>←</code>, <code>→</code>, <code>B</code>, <code>A</code> for 'Konami'</p>
+<p>Type <code>PASSWORD</code> and end with <code>↵</code> for 'Insecure'</p>
+<p>Type <code>RUSSIAN</code> to play Russian roulette.</p>
+<hr>
+<p>By Arjan Eising</p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+<script src="./jquery.typesequence.js"></script>
+<script>
+window.onload = function() {
+  $(window).typesequence({
+    sequence: ['a', 'b', 'c'],
+    callback: function(){
+      alert('Hello World!');
+    }
+  }).typesequence({
+    once: true,
+    sequence: ['↑', '↑', '↓', '↓', '←', '→', '←', '→', 'b', 'a'],
+    callback: function(){
+      alert('Konami!');
+    }
+  }).typesequence({
+    sequence: ['p', 'a', 's', 's', 'w', 'o', 'r', 'd'],
+    enter: true,
+    callback: function(){
+      alert('Insecure!');
+    }
+  }).typesequence({
+    once: 'depends',
+    callback: function() {
+      if (Math.random() < 0.17) {
+        alert('DEAD');
+        return true;
+      }
+      else {
+        alert('STILL ALIVE');
+        return false;
+      }
+    },
+    sequence: ['R', 'U', 'S', 'S', 'I', 'A', 'N']
+  });
+}
+</script>
