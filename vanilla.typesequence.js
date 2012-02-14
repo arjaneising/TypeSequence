@@ -1,4 +1,4 @@
-/* By Arjan Eising, 2011. Licence: MIT. See <https://github.com/arjaneising/TypeSequence> */
+/* By Arjan Eising, 2012. Licence: MIT. See <https://github.com/arjaneising/TypeSequence> */
 ;(function(window) {
   if (typeof window.typesequence != 'undefined') return;
 
